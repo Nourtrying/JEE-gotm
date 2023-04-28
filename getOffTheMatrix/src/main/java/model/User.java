@@ -1,28 +1,20 @@
-package entities;
-
+package model;
 import java.io.Serializable;
 import javax.persistence.*;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 
 /**
  * The persistent class for the user database table.
  * 
  */
-
-
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@Table(name = "user")
+@NamedQuery(name="user.findAll", query="SELECT u FROM User u")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int iduser;
+
 
 	private String discordTag;
 
@@ -31,10 +23,9 @@ public class User implements Serializable {
 
 	private String name;
 
-	private int phoneN;
+	private String phoneN;
 
-	@Lob
-	private byte[] profilePic;
+	
 
 	private int score;
 
@@ -87,21 +78,15 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public int getPhoneN() {
+	public String getPhoneN() {
 		return this.phoneN;
 	}
 
-	public void setPhoneN(int phoneN) {
+	public void setPhoneN(String phoneN) {
 		this.phoneN = phoneN;
 	}
 
-	public byte[] getProfilePic() {
-		return this.profilePic;
-	}
-
-	public void setProfilePic(byte[] profilePic) {
-		this.profilePic = profilePic;
-	}
+	
 
 	public int getScore() {
 		return this.score;

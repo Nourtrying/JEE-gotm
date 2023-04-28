@@ -1,4 +1,4 @@
-package entities;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,7 +15,6 @@ public class Profile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idprofile;
 
 	private String password;
@@ -29,7 +28,7 @@ public class Profile implements Serializable {
 	private Account account;
 
 	//bi-directional many-to-one association to User
-	@OneToMany(mappedBy="profile", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="profile")
 	private List<User> users;
 
 	public Profile() {

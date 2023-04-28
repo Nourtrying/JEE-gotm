@@ -1,4 +1,4 @@
-package entities;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,7 +15,6 @@ public class Pending implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idpending;
 
 	private String confirmPassword;
@@ -29,7 +28,7 @@ public class Pending implements Serializable {
 	private String username;
 
 	//bi-directional many-to-one association to User
-	@OneToMany(mappedBy="pending", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="pending")
 	private List<User> users;
 
 	public Pending() {

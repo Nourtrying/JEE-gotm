@@ -1,4 +1,4 @@
-package entities;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,11 +15,10 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idaccount;
 
 	//bi-directional many-to-one association to Profile
-	@OneToMany(mappedBy="account", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="account")
 	private List<Profile> profiles;
 
 	public Account() {
